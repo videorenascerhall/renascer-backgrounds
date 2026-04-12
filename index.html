@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backgrounds Dominicais — Renascer em Cristo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul-escuro:  #1A1A2E;
+    --azul-medio:   #16213E;
+    --azul-acento:  #0F3460;
+    --vermelho:     #E94560;
+    --dourado:      #C9A84C;
+    --branco:       #F5F0E8;
+    --cinza-claro:  #D4CFC6;
+    --sombra:       0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--azul-escuro);
+    color: var(--branco);
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Fundo com textura */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(233,69,96,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(15,52,96,0.3) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 48px 24px 36px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    background: linear-gradient(180deg, rgba(15,52,96,0.4) 0%, transparent 100%);
+  }
+
+  .logo-linha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .logo-linha .cruz {
+    font-size: 28px;
+    color: var(--dourado);
+    animation: pulsar 3s ease-in-out infinite;
+  }
+
+  @keyframes pulsar {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(0.95); }
+  }
+
+  header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(20px, 4vw, 36px);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: var(--branco);
+    text-shadow: 0 2px 20px rgba(201,168,76,0.3);
+  }
+
+  header h1 span {
+    color: var(--dourado);
+  }
+
+  .subtitulo {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--cinza-claro);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* ── FILTROS ── */
+  .filtros-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+    padding: 28px 32px;
+    background: rgba(22,33,62,0.6);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    backdrop-filter: blur(10px);
+  }
+
+  .filtro-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .filtro-grupo label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    font-weight: 700;
+  }
+
+  .filtro-grupo select {
+    background: rgba(26,26,46,0.9);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--branco);
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+  }
+
+  .filtro-grupo select:focus {
+    outline: none;
+    border-color: var(--dourado);
+    box-shadow: 0 0 0 2px rgba(201,168,76,0.15);
+  }
+
+  .filtro-grupo select option {
+    background: var(--azul-escuro);
+    color: var(--branco);
+  }
+
+  .filtro-tipo {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .btn-tipo {
+    padding: 10px 20px;
+    border: 1px solid rgba(201,168,76,0.3);
+    background: transparent;
+    color: var(--cinza-claro);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+
+  .btn-tipo:hover {
+    border-color: var(--dourado);
+    color: var(--dourado);
+  }
+
+  .btn-tipo.ativo {
+    background: var(--dourado);
+    border-color: var(--dourado);
+    color: var(--azul-escuro);
+  }
+
+  .btn-limpar {
+    padding: 10px 20px;
+    background: rgba(233,69,96,0.15);
+    border: 1px solid rgba(233,69,96,0.4);
+    color: var(--vermelho);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .btn-limpar:hover {
+    background: rgba(233,69,96,0.3);
+  }
+
+  /* ── ESTATÍSTICAS ── */
+  .stats-bar {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 16px 32px;
+    background: rgba(15,52,96,0.3);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--cinza-claro);
+  }
+
+  .stat-item strong {
+    color: var(--dourado);
+    font-size: 18px;
+    font-family: 'Cinzel', serif;
+  }
+
+  .stat-sep {
+    color: rgba(201,168,76,0.3);
+    font-size: 20px;
+  }
+
+  /* ── LOADING ── */
+  .loading {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    gap: 16px;
+  }
+
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid rgba(201,168,76,0.2);
+    border-top-color: var(--dourado);
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+  }
+
+  @keyframes girar {
+    to { transform: rotate(360deg); }
+  }
+
+  .loading p {
+    color: var(--cinza-claro);
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── CONFIGURAÇÃO ── */
+  .config-panel {
+    position: relative;
+    z-index: 10;
+    margin: 24px 32px;
+    padding: 24px;
+    background: rgba(22,33,62,0.8);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+  }
+
+  .config-panel h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--dourado);
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .config-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .config-campo label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cinza-claro);
+  }
+
+  .config-campo input {
+    background: rgba(26,26,46,0.9);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--branco);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    transition: border-color 0.2s;
+  }
+
+  .config-campo input:focus {
+    outline: none;
+    border-color: var(--dourado);
+  }
+
+  .config-campo input::placeholder {
+    color: rgba(212,207,198,0.4);
+  }
+
+  .btn-conectar {
+    margin-top: 16px;
+    padding: 12px 32px;
+    background: var(--dourado);
+    border: none;
+    color: var(--azul-escuro);
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-conectar:hover {
+    background: #e0be6a;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+  }
+
+  .instrucoes {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(233,69,96,0.08);
+    border: 1px solid rgba(233,69,96,0.2);
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--cinza-claro);
+  }
+
+  .instrucoes strong {
+    color: var(--vermelho);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .instrucoes ol {
+    padding-left: 20px;
+  }
+
+  .instrucoes li {
+    margin-bottom: 6px;
+  }
+
+  .instrucoes code {
+    background: rgba(201,168,76,0.15);
+    color: var(--dourado);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+
+  /* ── MOSAICO ── */
+  .galeria-container {
+    position: relative;
+    z-index: 10;
+    padding: 24px 32px 48px;
+  }
+
+  .galeria-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .galeria-titulo .contagem {
+    background: var(--vermelho);
+    color: white;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+  }
+
+  .mosaico {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .card-foto {
+    background: rgba(22,33,62,0.7);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    animation: aparecer 0.4s ease both;
+  }
+
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-foto:hover {
+    border-color: var(--dourado);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.3);
+  }
+
+  .card-imagem {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    background: rgba(15,52,96,0.5);
+  }
+
+  .card-imagem-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(15,52,96,0.5), rgba(26,26,46,0.8));
+    font-size: 32px;
+    color: rgba(201,168,76,0.3);
+  }
+
+  .card-info {
+    padding: 14px 16px;
+  }
+
+  .card-nome {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--branco);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .tag {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+
+  .tag-estadual {
+    background: rgba(15,52,96,0.8);
+    color: var(--cinza-claro);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .tag-palavra {
+    background: rgba(15,52,96,0.9);
+    color: #7EB8F7;
+    border: 1px solid rgba(126,184,247,0.3);
+  }
+
+  .tag-tema {
+    background: rgba(233,69,96,0.15);
+    color: var(--vermelho);
+    border: 1px solid rgba(233,69,96,0.3);
+  }
+
+  .card-data {
+    font-size: 11px;
+    color: rgba(212,207,198,0.5);
+    margin-top: 8px;
+  }
+
+  /* ── VAZIO ── */
+  .vazio {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 80px 24px;
+  }
+
+  .vazio .icone {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.4;
+  }
+
+  .vazio h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--cinza-claro);
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .vazio p {
+    color: rgba(212,207,198,0.5);
+    font-size: 14px;
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,20,0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox.aberto {
+    display: flex;
+  }
+
+  .lightbox-conteudo {
+    max-width: 900px;
+    width: 100%;
+    animation: zoomIn 0.3s ease;
+  }
+
+  @keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .lightbox img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    display: block;
+  }
+
+  .lightbox-info {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: rgba(22,33,62,0.9);
+    border-radius: 8px;
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .lightbox-info h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--branco);
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .lightbox-info p {
+    font-size: 13px;
+    color: var(--cinza-claro);
+    line-height: 1.6;
+  }
+
+  .lightbox-fechar {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: rgba(233,69,96,0.2);
+    border: 1px solid rgba(233,69,96,0.4);
+    color: var(--vermelho);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .lightbox-fechar:hover {
+    background: rgba(233,69,96,0.4);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    font-size: 12px;
+    color: rgba(212,207,198,0.3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVO ── */
+  @media (max-width: 600px) {
+    .filtros-container { padding: 20px 16px; }
+    .galeria-container { padding: 16px; }
+    .stats-bar { padding: 12px 16px; gap: 12px; }
+    .config-panel { margin: 16px; padding: 16px; }
+    .mosaico { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-linha">
+    <span class="cruz">✝</span>
+    <h1>Backgrounds <span>Dominicais</span></h1>
+    <span class="cruz">✝</span>
+  </div>
+  <p class="subtitulo">Renascer em Cristo — Gestão Visual</p>
+</header>
+
+<!-- PAINEL DE CONFIGURAÇÃO -->
+<div class="config-panel" id="configPanel">
+  <h3>⚙️ Configuração da Fonte de Dados</h3>
+  <div class="config-grid">
+    <div class="config-campo">
+      <label>ID da Planilha Google</label>
+      <input type="text" id="planilhaId" placeholder="Ex: 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms" />
+    </div>
+    <div class="config-campo">
+      <label>Chave de API do Google Sheets</label>
+      <input type="text" id="apiKey" placeholder="Ex: AIzaSyD..." />
+    </div>
+  </div>
+  <button class="btn-conectar" onclick="conectar()">🔗 Conectar à Planilha</button>
+
+  <div class="instrucoes">
+    <strong>⚠️ Como obter as credenciais</strong>
+    <ol>
+      <li>Acesse <code>console.cloud.google.com</code> e faça login com sua conta Google</li>
+      <li>Crie um projeto novo ou selecione um existente</li>
+      <li>No menu lateral vá em <code>APIs e Serviços → Biblioteca</code></li>
+      <li>Busque por <code>Google Sheets API</code> e clique em <strong>Ativar</strong></li>
+      <li>Vá em <code>APIs e Serviços → Credenciais → Criar credencial → Chave de API</code></li>
+      <li>Copie a chave gerada e cole no campo acima</li>
+      <li>Na sua Planilha Mestre, clique em <code>Compartilhar → Qualquer pessoa com o link → Visualizador</code></li>
+      <li>Copie o ID da planilha da URL (entre <code>/d/</code> e <code>/edit</code>) e cole no campo acima</li>
+    </ol>
+  </div>
+</div>
+
+<!-- FILTROS -->
+<div class="filtros-container" id="filtrosContainer" style="display:none">
+  <div class="filtro-grupo">
+    <label>🏛️ Igreja Estadual</label>
+    <select id="filtroEstadual" onchange="filtrar()">
+      <option value="">Todas as Estaduais</option>
+    </select>
+  </div>
+  <div class="filtro-grupo">
+    <label>📅 Campanha</label>
+    <select id="filtroCampanha" onchange="filtrar()">
+      <option value="">Todas as Campanhas</option>
+    </select>
+  </div>
+  <div class="filtro-grupo">
+    <label>🗓️ Domingo</label>
+    <select id="filtroDomingo" onchange="filtrar()">
+      <option value="">Todos os Domingos</option>
+    </select>
+  </div>
+  <div class="filtro-grupo">
+    <label>📸 Tipo de Foto</label>
+    <div class="filtro-tipo">
+      <button class="btn-tipo ativo" onclick="toggleTipo(this, '')"      >Todos</button>
+      <button class="btn-tipo"       onclick="toggleTipo(this, 'Palavra')">Palavra</button>
+      <button class="btn-tipo"       onclick="toggleTipo(this, 'Tema')"   >Tema</button>
+    </div>
+  </div>
+  <button class="btn-limpar" onclick="limparFiltros()">✕ Limpar</button>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar" id="statsBar" style="display:none">
+  <div class="stat-item"><strong id="statTotal">0</strong> fotos encontradas</div>
+  <span class="stat-sep">|</span>
+  <div class="stat-item"><strong id="statIgrejas">0</strong> igrejas</div>
+  <span class="stat-sep">|</span>
+  <div class="stat-item"><strong id="statPalavra">0</strong> Palavra</div>
+  <span class="stat-sep">|</span>
+  <div class="stat-item"><strong id="statTema">0</strong> Tema</div>
+</div>
+
+<!-- LOADING -->
+<div class="loading" id="loading" style="display:none">
+  <div class="spinner"></div>
+  <p>Carregando fotos...</p>
+</div>
+
+<!-- GALERIA -->
+<div class="galeria-container" id="galeriaContainer" style="display:none">
+  <div class="galeria-titulo">
+    📷 Galeria de Backgrounds
+    <span class="contagem" id="contagem">0</span>
+  </div>
+  <div class="mosaico" id="mosaico"></div>
+</div>
+
+<!-- VAZIO -->
+<div class="vazio" id="vazio" style="display:none">
+  <div class="icone">🔍</div>
+  <h3>Nenhuma foto encontrada</h3>
+  <p>Tente ajustar os filtros para ver mais resultados.</p>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="fecharLightbox(event)">
+  <button class="lightbox-fechar" onclick="fecharLightbox()">✕</button>
+  <div class="lightbox-conteudo">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-info">
+      <h3 id="lightboxNome"></h3>
+      <p id="lightboxInfo"></p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  ✝ Renascer em Cristo — Sistema de Backgrounds Dominicais ✝
+</footer>
+
+<script>
+  // ── Estado global ──
+  var CONFIG = {
+    planilhaId: localStorage.getItem('planilhaId') || '',
+    apiKey:     localStorage.getItem('apiKey')     || '',
+    baseUrl:    'https://sheets.googleapis.com/v4/spreadsheets'
+  };
+
+  var todosDados   = [];
+  var dadosFiltrados = [];
+  var tipoAtivo    = '';
+
+  // ── Inicialização ──
+  window.onload = function() {
+    if (CONFIG.planilhaId) document.getElementById('planilhaId').value = CONFIG.planilhaId;
+    if (CONFIG.apiKey)     document.getElementById('apiKey').value     = CONFIG.apiKey;
+    if (CONFIG.planilhaId && CONFIG.apiKey) conectar();
+  };
+
+  // ── Conectar e carregar dados ──
+  function conectar() {
+    var planilhaId = document.getElementById('planilhaId').value.trim();
+    var apiKey     = document.getElementById('apiKey').value.trim();
+
+    if (!planilhaId || !apiKey) {
+      alert('Por favor, preencha o ID da Planilha e a Chave de API.');
+      return;
+    }
+
+    CONFIG.planilhaId = planilhaId;
+    CONFIG.apiKey     = apiKey;
+    localStorage.setItem('planilhaId', planilhaId);
+    localStorage.setItem('apiKey',     apiKey);
+
+    mostrarLoading(true);
+    document.getElementById('configPanel').style.display = 'none';
+
+    // Carrega dados de REGISTROS, IGREJAS e CAMPANHAS em paralelo
+    Promise.all([
+      buscarAba('REGISTROS'),
+      buscarAba('IGREJAS'),
+      buscarAba('CAMPANHAS')
+    ])
+    .then(function(resultados) {
+      var registros  = parsearAba(resultados[0]);
+      var igrejas    = parsearAba(resultados[1]);
+      var campanhas  = parsearAba(resultados[2]);
+
+      // Mapa de igrejas para lookup rápido
+      var mapaIgrejas = {};
+      igrejas.forEach(function(ig) {
+        mapaIgrejas[ig['ID_Igreja']] = ig;
+      });
+
+      // Mapa de campanhas
+      var mapaCampanhas = {};
+      campanhas.forEach(function(camp) {
+        mapaCampanhas[camp['ID_Campanha']] = camp;
+      });
+
+      // Filtra apenas registros válidos com foto
+      todosDados = registros.filter(function(r) {
+        return r['Status_Validação'] === 'Válido' && r['URL_Foto'] && r['URL_Foto'].trim() !== '';
+      }).map(function(r) {
+        var ig   = mapaIgrejas[r['ID_Igreja']] || {};
+        var camp = mapaCampanhas[r['ID_Campanha']] || {};
+        return {
+          id:         r['ID_Registro'],
+          nome:       r['Nome_Igreja'],
+          dirigente:  r['Dirigente'],
+          estadual:   ig['Igreja_Estadual'] || '—',
+          campanha:   camp['Nome_Campanha'] || r['ID_Campanha'] || '—',
+          domingo:    r['Data_Domingo'],
+          tipo:       r['Tipo_Foto'],
+          url:        r['URL_Foto'],
+          legenda:    r['Legenda_Original']
+        };
+      });
+
+      popularFiltros();
+      filtrar();
+      mostrarLoading(false);
+      document.getElementById('filtrosContainer').style.display = 'flex';
+      document.getElementById('statsBar').style.display         = 'flex';
+    })
+    .catch(function(err) {
+      mostrarLoading(false);
+      document.getElementById('configPanel').style.display = 'block';
+      alert('Erro ao carregar dados: ' + err.message + '\n\nVerifique o ID da planilha, a chave de API e se a planilha está compartilhada publicamente.');
+      console.error(err);
+    });
+  }
+
+  function buscarAba(nomeAba) {
+    var url = CONFIG.baseUrl + '/' + CONFIG.planilhaId +
+      '/values/' + encodeURIComponent(nomeAba) +
+      '?key=' + CONFIG.apiKey;
+    return fetch(url).then(function(r) {
+      if (!r.ok) throw new Error('Erro HTTP ' + r.status + ' ao buscar aba ' + nomeAba);
+      return r.json();
+    });
+  }
+
+  function parsearAba(data) {
+    var rows = data.values || [];
+    if (rows.length < 2) return [];
+    var headers = rows[0];
+    return rows.slice(1).map(function(row) {
+      var obj = {};
+      headers.forEach(function(h, i) {
+        obj[h] = row[i] || '';
+      });
+      return obj;
+    });
+  }
+
+  // ── Popular filtros ──
+  function popularFiltros() {
+    var estaduais = [...new Set(todosDados.map(function(d) { return d.estadual; }))].sort();
+    var campanhas = [...new Set(todosDados.map(function(d) { return d.campanha; }))].sort();
+    var domingos  = [...new Set(todosDados.map(function(d) { return d.domingo; }))].sort().reverse();
+
+    popularSelect('filtroEstadual', estaduais, 'Todas as Estaduais');
+    popularSelect('filtroCampanha', campanhas, 'Todas as Campanhas');
+    popularSelect('filtroDomingo',  domingos,  'Todos os Domingos');
+  }
+
+  function popularSelect(id, valores, placeholder) {
+    var sel = document.getElementById(id);
+    sel.innerHTML = '<option value="">' + placeholder + '</option>';
+    valores.forEach(function(v) {
+      if (v && v !== '—') {
+        var opt = document.createElement('option');
+        opt.value = v;
+        opt.textContent = v;
+        sel.appendChild(opt);
+      }
+    });
+  }
+
+  // ── Filtrar ──
+  function filtrar() {
+    var estadual = document.getElementById('filtroEstadual').value;
+    var campanha = document.getElementById('filtroCampanha').value;
+    var domingo  = document.getElementById('filtroDomingo').value;
+
+    dadosFiltrados = todosDados.filter(function(d) {
+      return (!estadual || d.estadual === estadual) &&
+             (!campanha || d.campanha === campanha) &&
+             (!domingo  || d.domingo  === domingo)  &&
+             (!tipoAtivo || d.tipo    === tipoAtivo);
+    });
+
+    renderizarGaleria();
+    atualizarStats();
+  }
+
+  function toggleTipo(btn, tipo) {
+    tipoAtivo = tipo;
+    document.querySelectorAll('.btn-tipo').forEach(function(b) {
+      b.classList.remove('ativo');
+    });
+    btn.classList.add('ativo');
+    filtrar();
+  }
+
+  function limparFiltros() {
+    document.getElementById('filtroEstadual').value = '';
+    document.getElementById('filtroCampanha').value = '';
+    document.getElementById('filtroDomingo').value  = '';
+    tipoAtivo = '';
+    document.querySelectorAll('.btn-tipo').forEach(function(b, i) {
+      b.classList.toggle('ativo', i === 0);
+    });
+    filtrar();
+  }
+
+  // ── Renderizar galeria ──
+  function renderizarGaleria() {
+    var mosaico = document.getElementById('mosaico');
+    var galeria = document.getElementById('galeriaContainer');
+    var vazio   = document.getElementById('vazio');
+
+    mosaico.innerHTML = '';
+    document.getElementById('contagem').textContent = dadosFiltrados.length;
+
+    if (dadosFiltrados.length === 0) {
+      galeria.style.display = 'none';
+      vazio.style.display   = 'block';
+      return;
+    }
+
+    galeria.style.display = 'block';
+    vazio.style.display   = 'none';
+
+    dadosFiltrados.forEach(function(d, idx) {
+      var card = document.createElement('div');
+      card.className = 'card-foto';
+      card.style.animationDelay = Math.min(idx * 0.05, 0.5) + 's';
+
+      var tagTipo = d.tipo === 'Tema'
+        ? '<span class="tag tag-tema">📌 Tema</span>'
+        : '<span class="tag tag-palavra">📖 Palavra</span>';
+
+      var imgHtml = d.url
+        ? '<img class="card-imagem" src="' + d.url + '" alt="' + d.nome + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
+          '<div class="card-imagem-placeholder" style="display:none">📷</div>'
+        : '<div class="card-imagem-placeholder">📷</div>';
+
+      card.innerHTML =
+        imgHtml +
+        '<div class="card-info">' +
+          '<div class="card-nome">' + d.nome + '</div>' +
+          '<div class="card-meta">' +
+            '<span class="tag tag-estadual">' + d.estadual + '</span>' +
+            tagTipo +
+          '</div>' +
+          '<div class="card-data">📅 ' + d.domingo + ' · ' + d.campanha + '</div>' +
+        '</div>';
+
+      card.onclick = function() { abrirLightbox(d); };
+      mosaico.appendChild(card);
+    });
+  }
+
+  // ── Stats ──
+  function atualizarStats() {
+    var igrejas = new Set(dadosFiltrados.map(function(d) { return d.nome; })).size;
+    var palavra = dadosFiltrados.filter(function(d) { return d.tipo === 'Palavra'; }).length;
+    var tema    = dadosFiltrados.filter(function(d) { return d.tipo === 'Tema';    }).length;
+
+    document.getElementById('statTotal').textContent   = dadosFiltrados.length;
+    document.getElementById('statIgrejas').textContent = igrejas;
+    document.getElementById('statPalavra').textContent = palavra;
+    document.getElementById('statTema').textContent    = tema;
+  }
+
+  // ── Lightbox ──
+  function abrirLightbox(d) {
+    document.getElementById('lightboxImg').src     = d.url;
+    document.getElementById('lightboxNome').textContent = d.nome;
+    document.getElementById('lightboxInfo').textContent =
+      '📅 ' + d.domingo + '  |  ' + d.tipo + '  |  ' + d.campanha + '\n' +
+      '👤 ' + d.dirigente + '  |  🏛️ ' + d.estadual;
+    document.getElementById('lightbox').classList.add('aberto');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function fecharLightbox(e) {
+    if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-fechar')) {
+      document.getElementById('lightbox').classList.remove('aberto');
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') fecharLightbox({ target: document.getElementById('lightbox') });
+  });
+
+  // ── Loading ──
+  function mostrarLoading(show) {
+    document.getElementById('loading').style.display = show ? 'flex' : 'none';
+  }
+</script>
+</body>
+</html>
