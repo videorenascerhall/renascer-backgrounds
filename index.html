@@ -764,8 +764,8 @@
 <script>
   // ── Estado global ──
   var CONFIG = {
-    planilhaId: localStorage.getItem('planilhaId') || '',
-    apiKey:     localStorage.getItem('apiKey')     || '',
+    planilhaId: '1o7F-9lEBESZ61nTVUBu5uAVSr7Ju6hWCv645UEGtIY4',
+    apiKey:     'AIzaSyCZ1ZW_T96pCCDyCAHbQFO6f9Ye9-cWiXQ',
     baseUrl:    'https://sheets.googleapis.com/v4/spreadsheets'
   };
 
@@ -777,7 +777,7 @@
   window.onload = function() {
     if (CONFIG.planilhaId) document.getElementById('planilhaId').value = CONFIG.planilhaId;
     if (CONFIG.apiKey)     document.getElementById('apiKey').value     = CONFIG.apiKey;
-    if (CONFIG.planilhaId && CONFIG.apiKey) conectar();
+    conectar();
   };
 
   // ── Conectar e carregar dados ──
