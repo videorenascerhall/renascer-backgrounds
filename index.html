@@ -620,10 +620,41 @@
     position: relative;
     z-index: 10;
     text-align: center;
-    padding: 24px;
+    padding: 28px 24px;
     border-top: 1px solid rgba(201,168,76,0.1);
     font-size: 12px;
-    color: rgba(212,207,198,0.3);
+    color: rgba(212,207,198,0.4);
+    letter-spacing: 0.05em;
+  }
+  .footer-autor {
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: rgba(212,207,198,0.6);
+    letter-spacing: 0.05em;
+  }
+  .footer-autor a {
+    color: rgba(201,168,76,0.8);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-autor a:hover {
+    color: rgba(201,168,76,1);
+    text-decoration: underline;
+  }
+  .footer-sep {
+    color: rgba(201,168,76,0.4);
+    margin: 0 8px;
+  }
+  .footer-online {
+    font-size: 12px;
+    color: rgba(212,207,198,0.4);
+    margin-top: 6px;
+    letter-spacing: 0.08em;
+  }
+  .footer-marca {
+    margin-top: 10px;
+    font-size: 11px;
+    color: rgba(212,207,198,0.2);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
@@ -758,8 +789,46 @@
 
 <!-- FOOTER -->
 <footer>
-  ✝ Renascer em Cristo — Sistema de Backgrounds Dominicais ✝
+  <div class="footer-autor">
+    Feito por: Ronaldo Trismegisto
+    <span class="footer-sep">|</span>
+    📱 <a href="tel:+5511975075815">11975075815</a>
+    <span class="footer-sep">|</span>
+    💬 <a href="https://wa.me/5511975075815" target="_blank" rel="noopener">WhatsApp</a>
+    <span class="footer-sep">|</span>
+    ✈️ <a href="https://t.me/Dreouns" target="_blank" rel="noopener">Telegram</a>
+  </div>
+  <div class="footer-online">
+    <span id="visitantes-online">👁 Carregando visitantes...</span>
+  </div>
+  <div class="footer-marca">
+    ✝ Renascer em Cristo — Sistema de Backgrounds Dominicais ✝
+  </div>
 </footer>
+
+<script data-goatcounter="https://renascer-backgrounds.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+  // Contador de visitantes online via GoatCounter API
+  function atualizarVisitantes() {
+    var span = document.getElementById('visitantes-online');
+    if (!span) return;
+
+    fetch('https://renascer-backgrounds.goatcounter.com/api/v0/stats/hits?period=hour', {
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var total = data.total || 0;
+      span.textContent = '👁 ' + total + ' visitante' + (total !== 1 ? 's' : '') + ' na última hora';
+    })
+    .catch(function() {
+      span.textContent = '👁 Visitantes sendo contabilizados...';
+    });
+  }
+
+  atualizarVisitantes();
+  setInterval(atualizarVisitantes, 60000);
+</script>
 
 <script>
   // ── Estado global ──
